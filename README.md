@@ -19,8 +19,8 @@ composer install
 ## 🐋 - Docker
 Or you can run these commands:
 ```bash
-docker build -t supervision-image .
-docker run -d -p 1800:1800 --name supervision-project supervision-image
+docker build -t supervision-project .
+docker run -d -p 1800:1800 --name supervision-project supervision-project
 ```
 After that, open `http://localhost:1800` in your browser.
 

@@ -45,8 +45,8 @@ return function (App $app) {
         // $app->post('/dev', function (Request $request, Response $response) {
         //     $data = [
         //         $request->getParsedBody(),
-        //         'result' => hash_equals(hash_hmac($_ENV['HASH_ALGO'], 'martin' , $_ENV['HASH_SECRET'], false), 'ab6512a76dee1c57aa10e9be4f44b459dec319a6e9eea31b5aa3a8be3964d5d1'),
-        //         'result' => hash_hmac($_ENV['HASH_ALGO'], 'dubois' , $_ENV['HASH_SECRET'], false),
+        //         'result_1' => hash_equals(hash_hmac($_ENV['HASH_ALGO'], 'martin' , $_ENV['HASH_SECRET'], false), 'c11dbb2da7d523cbc3518abc65d0584a914cec70234abe42bd4cf9b0e3b2f1ac'),
+        //         'result_2' => hash_hmac($_ENV['HASH_ALGO'], 'dubois' , $_ENV['HASH_SECRET'], false),
         //     ];
         //     $message = 'Connexion réussie.';
         //     $response->getBody()->write(json_encode(['message' => $message, 'data' => $data]));
