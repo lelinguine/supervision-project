@@ -40,7 +40,7 @@ return function (App $app) {
             $html = file_get_contents(__DIR__ . '/../public/view/index.html');
             $response->getBody()->write($html);
             return $response->withHeader('Content-Type', 'text/html');
-        }); 
+        });
 
         $app->post('/connect', ConnectUserAction::class);
         $app->post('/metric', UserMetricRetrievalAction::class);
