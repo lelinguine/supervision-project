@@ -2,7 +2,9 @@ name: build-and-push
 
 on:
   push:
-    branches: [main]
+    tags:
+      - 'v*.*.*'
+      - 'test-*'
 
 permissions:
   contents: read
