@@ -18,7 +18,11 @@ WORKDIR /var/www/html
 
 COPY . /var/www/html
 
+COPY .env /var/www/html/.env
+
 RUN composer install --no-dev --optimize-autoloader
+
+RUN php storage/scripts/Seeder.php
 
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
