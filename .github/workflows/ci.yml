@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Décommente si tu as des tests
       # - name: Install Composer
       #   run: |
       #     curl -sS https://getcomposer.org/installer | php
@@ -46,6 +45,8 @@ jobs:
           ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }}
           HASH_SECRET=${{ secrets.HASH_SECRET }}
           HASH_ALGO=sha256
+          ADMIN_PASSWORD=dubois
+          BASIC_PASSWORD=martin
           DB_CONNECTION=sqlite
           DB_DATABASE=/storage/database.sqlite
           SOCKET_HOST=localhost
