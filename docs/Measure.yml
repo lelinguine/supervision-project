@@ -1,0 +1,25 @@
+info:
+  name: Measure
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/metric"
+  body:
+    type: json
+    data: |-
+      {
+        "data": {
+          "user": {
+            "token": "{{TOKEN}}"
+          }
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

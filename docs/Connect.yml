@@ -1,0 +1,26 @@
+info:
+  name: Connect
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/connect"
+  body:
+    type: json
+    data: |-
+      {
+        "data": {
+          "user": {
+            "pseudo": "jeanmartin",
+            "password": "martin"
+          }
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

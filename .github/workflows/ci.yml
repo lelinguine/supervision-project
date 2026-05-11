@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - 'v*.*.*'
-      - 'test.*'
 
 permissions:
   contents: read
@@ -45,8 +44,8 @@ jobs:
           ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }}
           HASH_SECRET=${{ secrets.HASH_SECRET }}
           HASH_ALGO=sha256
-          ADMIN_PASSWORD=dubois
-          BASIC_PASSWORD=martin
+          ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
+          BASIC_PASSWORD=${{ secrets.BASIC_PASSWORD }}
           DB_CONNECTION=sqlite
           DB_DATABASE=/storage/database.sqlite
           SOCKET_HOST=localhost

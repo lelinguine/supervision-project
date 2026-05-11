@@ -1,0 +1,6 @@
+name: environment
+variables:
+  - name: BASE_URL
+    value: https://supervision-project.valentinluginbuhl.fr
+  - name: TOKEN
+    value: ""
