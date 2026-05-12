@@ -73,3 +73,10 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Trigger Watchtower Update
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            "${{ secrets.WATCHTOWER_URL }}/v1/update?image=ghcr.io/${{ github.repository }}:latest"
