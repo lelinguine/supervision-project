@@ -36,16 +36,16 @@ return function (App $app) {
 
     $app->group('', function ($app)
     {
+        $app->get('/', function (Request $request, Response $response) {
+            $html = file_get_contents(__DIR__ . '/../public/index.html');
+            $response->getBody()->write($html);
+            return $response->withHeader('Content-Type', 'text/html');
+        }); 
+
         $app->get('/view', function (Request $request, Response $response) {
             $html = file_get_contents(__DIR__ . '/../public/view/index.html');
             $response->getBody()->write($html);
             return $response->withHeader('Content-Type', 'text/html');
         });
-
-        $app->get('/{routes:.*}', function (Request $request, Response $response) {
-            $html = file_get_contents(__DIR__ . '/../public/index.html');
-            $response->getBody()->write($html);
-            return $response->withHeader('Content-Type', 'text/html');
-        }); 
     });
 };

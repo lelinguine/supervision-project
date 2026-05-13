@@ -9,6 +9,6 @@ function checkTokenValidity() {
 $(document).ready(function() {
     const currentPath = window.location.pathname;
     if (currentPath.includes('view') && !checkTokenValidity()) {
-        window.location.href = '../';
+        window.location.href = "/"
     }
 });
