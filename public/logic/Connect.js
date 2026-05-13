@@ -10,7 +10,7 @@ async function getConnect() {
 
     try {
         const response = await $.ajax({
-            url: apiUrl + "/connect",
+            url: apiUrl + "connect",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(requestData),

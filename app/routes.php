@@ -12,13 +12,13 @@ use App\Application\Actions\User\ConnectUserAction;
 use App\Application\Actions\User\UserMetricRetrievalAction;
 
 return function (App $app) {
-    $app->group('', function ($app)
+    $app->group('/api/', function ($app)
     {
-        $app->options('/{routes:.*}', function (Request $request, Response $response) {
+        $app->options('{routes:.*}', function (Request $request, Response $response) {
             return $response;
         });
 
-        $app->get('/', function (Request $request, Response $response) {
+        $app->get('version', function (Request $request, Response $response) {
             $data = [
                 'app' => [
                     'version' => $_ENV['APP_VERSION'],
@@ -30,19 +30,22 @@ return function (App $app) {
             return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
         });
 
-        $app->get('/app', function (Request $request, Response $response) {
+        $app->post('connect', ConnectUserAction::class);
+        $app->post('metric', UserMetricRetrievalAction::class);
+    });
+
+    $app->group('/', function ($app)
+    {
+        $app->get('{routes:.*}', function (Request $request, Response $response) {
             $html = file_get_contents(__DIR__ . '/../public/index.html');
             $response->getBody()->write($html);
             return $response->withHeader('Content-Type', 'text/html');
         }); 
         
-        $app->get('/view', function (Request $request, Response $response) {
+        $app->get('view', function (Request $request, Response $response) {
             $html = file_get_contents(__DIR__ . '/../public/view/index.html');
             $response->getBody()->write($html);
             return $response->withHeader('Content-Type', 'text/html');
         });
-
-        $app->post('/connect', ConnectUserAction::class);
-        $app->post('/metric', UserMetricRetrievalAction::class);
     });
 };

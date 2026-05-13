@@ -8,7 +8,7 @@ function checkTokenValidity() {
 
 $(document).ready(function() {
     const currentPath = window.location.pathname;
-    if (currentPath.includes('view/') && !checkTokenValidity()) {
+    if (currentPath.includes('view') && !checkTokenValidity()) {
         window.location.href = '../';
     }
 });

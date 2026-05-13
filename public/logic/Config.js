@@ -1,1 +1,1 @@
-const apiUrl = "https://supervision-project.valentinluginbuhl.fr";
+const apiUrl = "https://supervision.valentinluginbuhl.fr/api/";

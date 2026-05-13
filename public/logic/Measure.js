@@ -9,7 +9,7 @@ async function getMeasure() {
 
     try {
         const response = await $.ajax({
-            url: apiUrl + "/metric",
+            url: apiUrl + "metric",
             type: 'POST',
             dataType: 'json',
             contentType: 'application/json',

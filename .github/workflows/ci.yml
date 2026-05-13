@@ -2,34 +2,15 @@ name: build-and-push
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
 
 permissions:
   contents: read
   packages: write
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      # - name: Install Composer
-      #   run: |
-      #     curl -sS https://getcomposer.org/installer | php
-      #     ./composer.phar install --no-dev
-      
-      # - name: Run tests
-      #   run: |
-      #     ./composer.phar test
-      
-      # - name: Run PHPStan
-      #   run: |
-      #     ./composer.phar stan
-
   docker:
-    needs: test
     runs-on: ubuntu-latest
     environment: production
 
@@ -74,7 +55,12 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Trigger Watchtower Update
+  watchtower:
+    needs: docker
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Trigger Watchtower Container Update
         run: |
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
