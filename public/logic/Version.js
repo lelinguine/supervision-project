@@ -2,7 +2,7 @@ async function getVersion() {
 
     try {
         const response = await $.ajax({
-            url: apiUrl + "version",
+            url: apiUrl + "/version",
             type: 'GET',
             dataType: 'json'
         });
