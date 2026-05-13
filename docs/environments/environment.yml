@@ -2,5 +2,5 @@ name: environment
 variables:
   - name: BASE_URL
     value: https://supervision.valentinluginbuhl.fr/api
-  - name: TOKEN
-    value: ""
+  - secret: true
+    name: TOKEN
