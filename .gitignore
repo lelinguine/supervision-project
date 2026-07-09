@@ -8,3 +8,6 @@
 .env
 
 /storage/database.sqlite
+
+/var/
+/logs/
